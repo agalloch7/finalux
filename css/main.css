@@ -1,0 +1,427 @@
+/* Globals */
+html, body {
+  height: 100%;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-weight: 300;
+  min-height: 1000px;
+}
+
+div {
+  display: block;
+}
+a:hover {
+  text-decoration: none;
+}
+
+.leftcol {
+  padding-top: 120px;
+  padding-bottom: 20px;
+  /*background: #111;*/
+  /*min-height: 100%;*/
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select:none;
+}
+.midcol, .rightcol {
+  padding-top: 120px;
+  padding-bottom: 20px;
+  min-height: 100%; 
+}
+
+.rightcol {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+
+/* category filters */
+span.cat {
+  cursor: pointer;
+}
+span.cat:hover {
+  text-decoration: underline;
+}
+span.cat.top-lvl:hover {
+  text-decoration: none;
+}
+.panel-heading {
+  overflow: auto;
+}
+.panel-pink {
+  border-color: #eee;
+}
+.panel-pink .panel-heading {
+  background-color:#fff;
+}
+.expandBtn {
+  float: right;
+}
+.sml {
+  margin-left: 15px;
+}
+
+#filterSelect {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select:none;
+}
+
+
+/*eventlist and events*/
+.eventlist {
+  border-left: 1px dotted #d6d5d5;
+  /*border-right: 1px dashed #d6d5d5;*/
+  border-bottom: 1px dotted #d6d5d5;
+}
+
+.eventlist h5 {
+  background-color: #eee;
+  font-size: .9em;
+  font-style: italic;
+  color: gray;
+  margin: 0;
+  padding: 5px;
+  border-top: 1px dotted #D6D5D5;
+}
+
+.eventitem {
+  padding: 20px 10px;
+  border-top: 1px dotted #d6d5d5;
+  font-weight: bold;
+  position: relative;
+  background-color: #fff;
+  /*line-height: 18px;*/
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-transition: background-color 0.8s;
+  -moz-transition: background-color 0.8s;
+  -ms-transition: background-color 0.8s;
+  -o-transition: background-color 0.8s;
+  transition: background-color 0.8s;
+}
+
+a .eventitem {
+  color: #313131;
+}
+
+.eventitem:hover {
+  background-color: #f8f8f8;
+}
+
+.eventitem .evntTitle {
+  padding-right: 70px;
+  display: block;
+}
+
+.eventitem .evntCaltext {
+  font-size: .9em;
+}
+
+.eventitem .badge{
+  position: absolute;
+  right: 10px;
+  top: 38%;
+}
+
+.eventitem .select-badge {
+  background: #3CAD98 url('../img/green-tri.png') no-repeat 100% 100%;
+  padding: 8px 50px 8px 30px;
+  right: -35px;
+  top: 30%;
+  overflow: visible;
+  border-radius: 0;
+  z-index: 99;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.eventTitle {
+  margin-top: 0;
+}
+
+/* Calendar Grid View */
+#calendarView {
+  margin: 0 auto 15px auto;
+  min-height: 320px;
+}
+#calendarView .clndr .clndr-controls {
+  background-color: #A71930;
+  color: #f8f8f8;
+  display: block;
+  /*width: 100%;*/
+  height: 40px;
+  margin-bottom: 0px;
+  border-right: 1px solid #f5f5f5;
+}
+#calendarView .clndr .clndr-controls .clndr-previous-button {
+  float: left;
+  width: 10%;
+  padding: 10px 0;
+  text-align: center;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-transition: background-color 0.5s;
+  -moz-transition: background-color 0.5s;
+  -ms-transition: background-color 0.5s;
+  -o-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+}
+#calendarView .clndr .clndr-controls .clndr-previous-button:hover {
+  background-color: #cc0000;
+}
+#calendarView .clndr .clndr-controls .month {
+  text-transform: uppercase;
+  float: left;
+  width: 80%;
+  text-align: center;
+  padding: 10px 0;
+}
+#calendarView .clndr .clndr-controls .clndr-next-button {
+  float: left;
+  width: 10%;
+  padding: 10px 0;
+  text-align: center;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-transition: background-color 0.5s;
+  -moz-transition: background-color 0.5s;
+  -ms-transition: background-color 0.5s;
+  -o-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+}
+#calendarView .clndr .clndr-controls .clndr-next-button:hover {
+  background-color: #cc0000;
+}
+#calendarView .clndr .clndr-grid {
+  text-align: center;
+  /*border: 1px solid #FF4545;*/
+  display: block;
+}
+#calendarView .clndr .clndr-grid .header-day {
+  float: left;
+  width: 14.285%;
+  height: 40px;
+  line-height: 40px;
+  background: #f8f8f8;
+  border-right: 1px solid #f5f5f5;
+  border-bottom: 1px solid #f5f5f5;
+}
+#calendarView .clndr .clndr-grid .day {
+  float: left;
+  font-size: 12px;
+  font-weight: bold;
+  width: 14.285%;
+  height: 40px;
+  line-height: 40px;
+  background-color: #fff;
+  border-right: 1px solid #f5f5f5;
+  border-bottom: 1px solid #f5f5f5;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-transition: color 0.5s;
+  -moz-transition: color 0.5s;
+  -ms-transition: color 0.5s;
+  -o-transition: color 0.5s;
+  transition: color 0.5s;
+}
+#calendarView .clndr .clndr-grid .day:hover {
+  color: #7fd5c5;
+}
+#calendarView .clndr .clndr-grid .day .event {
+  /*background-color: #B4E09F;*/
+}
+#calendarView .clndr-grid .days .day.event .day-number {
+  padding-bottom: 3px;
+  /*border-bottom: 2px solid #3883a3;*/
+  border-bottom: 2px solid #ccc;
+}
+#calendarView .highlighted {
+  background-image: url('../img/green-dot.png') !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #f8f8f8;
+}
+#calendarView .highlighted .day-number, #calendarView .today .day-number {
+  border-bottom: none !important;
+}
+#calendarView .clndr .clndr-grid .day.today {
+  background-image: url('../img/dark-dot.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #f8f8f8;
+}
+#calendarView .clndr .clndr-grid .empty,
+#calendarView .clndr .clndr-grid .adjacent-month {
+  float: left;
+  width: 14.285%;
+  height: 40px;
+  color: #bbb;
+}
+#calendarView .clndr .clndr-today-button {
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+}
+#calendarView .clndr .clndr-today-button:hover {
+  background-color: #ddd;
+}
+
+/*Calendar List view*/
+#calendarViewList .clndr .clndr-controls {
+  background-color: #A71930;
+  color: #f8f8f8;
+  display: block;
+  /*width: 100%;*/
+  height: 40px;
+  margin-bottom: 0px;
+  border-right: 1px solid #f5f5f5;
+}
+#calendarViewList .clndr .clndr-controls .clndr-previous-button {
+  float: left;
+  width: 10%;
+  padding: 10px 0;
+  text-align: center;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-transition: background-color 0.5s;
+  -moz-transition: background-color 0.5s;
+  -ms-transition: background-color 0.5s;
+  -o-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+}
+#calendarViewList .clndr .clndr-controls .clndr-previous-button:hover {
+  background-color: #cc0000;
+}
+#calendarViewList .clndr .clndr-controls .month {
+  text-transform: uppercase;
+  float: left;
+  width: 80%;
+  text-align: center;
+  padding: 10px 0;
+}
+#calendarViewList .clndr .clndr-controls .clndr-next-button {
+  float: left;
+  width: 10%;
+  padding: 10px 0;
+  text-align: center;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-transition: background-color 0.5s;
+  -moz-transition: background-color 0.5s;
+  -ms-transition: background-color 0.5s;
+  -o-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+}
+#calendarViewList .clndr .clndr-controls .clndr-next-button:hover {
+  background-color: #cc0000;
+}
+#calendarViewList .clndr .day {
+  display: block;
+  position: relative;
+  padding-left: 50px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px dotted #ccc;
+  min-height: 60px;
+}
+#calendarViewList .clndr .day .day-number {
+  position: absolute;
+  left: 2px;
+  font-size: 20px;
+  line-height: 1em;
+  text-align: center;
+}
+#calendarViewList .clndr .day .day-number small {
+  font-size: 13px;
+}
+#calendarViewList .clndr .day .panel-heading {
+  cursor: pointer;
+}
+
+/* event description */
+#eventSummary {
+  font-weight: bold;
+}
+
+#eventLink {
+  font-weight: bold;
+  font-size: 12px;
+  padding: 2px 0 2px 19px;
+  background: transparent url(../img/icon-info.png) no-repeat 0 center;
+  border: none;
+}
+
+#eventAd img {
+  width: auto;
+  max-width: 100%;
+}
+
+.text-muted {
+  color: #bbb;
+}
+
+ul.inverse li{
+  background-color: transparent;
+  border:none;
+  border-bottom: 1px dotted #4c4c4c;
+}
+ul.inverse li a{
+  color: #919191;
+}
+ul.inverse li a:hover {
+  color: #f8f8f8;
+}
+
+.sector
+{	
+	background-color: grey;
+}
+
+/* approve.cfm */
+.timestamp {
+  font-family: Arial;
+  float: left;
+  color: #888;
+  font-weight: bold;
+  margin-right: 15px;
+}
+
+/*utility*/
+.zmt { margin-top: 0};
+.zmb { margin-bottom: 0;}
+.zml {margin-left: 0;}
+.zmr {margin-right: 0;}
+
+@media (max-width: 767px) { 
+  .midcol, .rightcol {
+    height: auto;
+  }
+  .leftcol {
+    padding-bottom: 15px;
+    height: auto;
+  }
+  .eventitem .select-badge {
+    right:10px;
+    padding: 5px 10px;
+    background: #3CAD98;
+    border-radius: 15px;
+  }
+  .rightcol {
+    padding-top: 15px;
+  }
+
+}
